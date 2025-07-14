@@ -28,3 +28,7 @@ STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 # Whitenoise settings for serving static files
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+REST_FRAMEWORK["DEFAULT_RENDERER_CLASSES"] = [
+    "rest_framework.renderers.JSONRenderer",
+]

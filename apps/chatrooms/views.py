@@ -45,7 +45,6 @@ class ChatMessageListView(generics.ListAPIView):
 
     def get_queryset(self):
         chatroom_id = self.kwargs.get("pk")
-        print(self.request.user)
         return ChatMessage.objects.filter(
             chatroom_id=chatroom_id, chatroom__user=self.request.user
         )
