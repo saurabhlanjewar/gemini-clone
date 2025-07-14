@@ -1,0 +1,271 @@
+{
+  "info": {
+    "_postman_id": "75043e81-b31f-41d7-8b93-82488491aba8",
+    "name": "Gemini Clone",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+    "_exporter_id": "15233912"
+  },
+  "item": [
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "Verify Otp",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"mobile\": \"9326461071\",\r\n    \"otp\": \"647889\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{base_url}}/auth/verify-otp"
+          },
+          "response": []
+        },
+        {
+          "name": "Send Otp",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"mobile\": \"9326461071\",\r\n  \"purpose\": \"login\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{base_url}}/auth/send-otp"
+          },
+          "response": []
+        },
+        {
+          "name": "signup",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"mobile\": \"9326461071\",\r\n  \"name\": \"Saurabh\",\r\n  \"email\": \"saurabh@email.com\",\r\n  \"password\": \"Saurabh@123\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{base_url}}/auth/signup"
+          },
+          "response": []
+        },
+        {
+          "name": "forgot password",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"mobile\": \"9326461071\",\r\n  \"purpose\": \"reset\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{base_url}}/auth/forgot-password"
+          },
+          "response": []
+        },
+        {
+          "name": "change pasword",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"old_password\": \"pass123\",\r\n  \"new_password\": \"newpass456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{base_url}}/auth/change-password"
+          },
+          "response": []
+        },
+        {
+          "name": "user",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{TOKEN}}"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/user/me"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "chatroom",
+      "item": [
+        {
+          "name": "Create Chatroom",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{TOKEN}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"chat1\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{base_url}}/chatrooms/"
+          },
+          "response": []
+        },
+        {
+          "name": "Chat Room Messages",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{TOKEN}}"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"chat1\"\r\n}"
+            },
+            "url": "{{base_url}}/chat/chatrooms/1/messages/"
+          },
+          "response": []
+        },
+        {
+          "name": "Add Message Chat Room Messages",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "{{TOKEN}}"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"chat1\"\r\n}"
+            },
+            "url": "{{base_url}}/chat/chatrooms/1/messages/"
+          },
+          "response": []
+        },
+        {
+          "name": "All chatrooms",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/chatrooms"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "subscription",
+      "item": [
+        {
+          "name": "Start Subscription",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{base_url}}/subscribe/pro"
+          },
+          "response": []
+        },
+        {
+          "name": "Subscription Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/subscription/status"
+          },
+          "response": []
+        },
+        {
+          "name": "Webhook Stripe",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/webhook/stripe"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": {
+      "token": "{{TOKEN}}"
+    }
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000",
+      "type": "string"
+    }
+  ]
+}
