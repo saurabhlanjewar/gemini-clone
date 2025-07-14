@@ -181,5 +181,6 @@ python manage.py runserver
 
 - Neon - used for postgressql
 - Redis - cloud redis
+- Celery - https://gemini-clone-1-32ws.onrender.com
 
 ---
